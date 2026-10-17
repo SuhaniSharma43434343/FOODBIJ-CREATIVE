@@ -18,6 +18,7 @@ import { createPortal } from 'react-dom';
 import { img } from '@/lib/images';
 import { folios, marqueeRows, type Folio } from '@/lib/avant';
 import { serviceBySlug, type Service } from '@/lib/content';
+import { SwipeHint } from '@/components/ui/SwipeHint';
 import { Reveal, SplitRise } from '@/components/fx/Reveal';
 import { VelocityMarquee } from '@/components/fx/VelocityMarquee';
 import { ArrowLong, Close } from '@/components/ui/Icons';
@@ -81,7 +82,8 @@ export function BespokeFolios() {
         </Reveal>
 
         {/* phone: snap rail of covers */}
-        <ul className="rail mt-12 pb-6 sm:hidden" aria-label="Services">
+        <SwipeHint className="wrap mt-10 sm:hidden">Swipe through the volumes</SwipeHint>
+        <ul className="rail mt-5 pb-6 sm:hidden" aria-label="Services">
           {folios.map((f) => (
             <li key={f.slug} className="w-[62vw] max-w-[260px]">
               <button type="button" onClick={(e) => open(f.slug, e.currentTarget)} aria-haspopup="dialog" className="block w-full text-left">

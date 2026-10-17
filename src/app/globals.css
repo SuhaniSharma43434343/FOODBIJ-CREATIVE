@@ -364,6 +364,18 @@
     margin-top: 6px;
   }
 
+  /* swipe hint: the arrow leans right, then settles */
+  @keyframes swipe-nudge {
+    0%,
+    55%,
+    100% {
+      transform: none;
+    }
+    25% {
+      transform: translate3d(6px, 0, 0);
+    }
+  }
+
   .needs {
     font-family: var(--font-mono);
     font-size: 0.82em;

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { img } from '@/lib/images';
 import { liveCounters } from '@/lib/content';
 import { Reveal, SplitRise } from '@/components/fx/Reveal';
+import { SwipeHint } from '@/components/ui/SwipeHint';
 
 type Counter = (typeof liveCounters)[number];
 type Mode = 'row' | 'pin' | 'static';
@@ -164,6 +165,7 @@ export function LivePass() {
 
       <div ref={pinRef} className="relative" style={pinned ? { height: frameH + distance } : undefined}>
         <div ref={frameRef} className={pinned ? 'gap-sec sticky top-[calc(var(--header-h)+24px)] [overflow-x:clip]' : 'gap-sec'}>
+          {mode === 'row' && <SwipeHint className="wrap mb-5">Swipe to inspect stations</SwipeHint>}
           <div className="relative">
             <Rail />
             {pinned ? <motion.div style={{ x }} className="will-change-transform">{tickets}</motion.div> : tickets}
